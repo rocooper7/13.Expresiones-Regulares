@@ -1,0 +1,814 @@
+Ejercico 1
+Los delimitadores numéricos: `+`, `*`, `?`
+\d*[a-z]?s\d+
+\d+[a-z]?s\d+  (buscar un numero determinado)
+
+Principio (`^`) y final de línea (`$`)
+^\d$
+^\d{2,5}$
+^[^\d].+$
+
+1
+12
+123
+1234
+12345
+123456s78910
+12345678910a
+13453243
+
+
+Ejercicio 2 
+El caso de `?` como delimitador
+\w+[,\n]  (buscar por comas) 
+.+?[,\n]   #Otra forma 
+
+csv1,csv2,csv3,csv4,csv5
+1234,543,374,746,747
+234,736,7364,487,7263
+234,645,846,938,374,384
+
+
+Rodrigo Jiménez Gutiérrez
+
+Ejercicio 3 
+Los contadores `{1,4}`
+\d{2,2}
+\w{3,4}
+\d{2,2}[\-\. ]?     (Buscar por digitos o palabras con contador)
+\d{2,2}\D?         #Otra forma igual (Buscar por digitos o palabras con contador)
+(\d{2}\W?){2,2}    #Quitando el texto 
+
+5556581111
+56-58-11-12-12
+30.23.45.98.98
+30 23 45 98 98
+30a23x45c98c98
+
+
+Ejerccico 4 
+Principio (`^`) y final de línea (`$`)
+ ^\[LOG.*\[LOG\].*
+ ^\[LOG.*\[LOG\].*\[user:@celismx\].*
+ ^\[LOG.*\[LOG.*user:@\w+?\].*$
+
+[LOG ENTRY] [ERROR] The system is unstable
+[LOG ENTRY] [WARN] The system may be down
+[LOG ENTRY] [LOG] Everything is OK
+[LOG ENTRY] [LOG] [user:@celismx] Logged in
+[LOG ENTRY] [LOG] [user:@beco] Clicked here
+[LOG ENTRY] [LOG] [user:@beco] Rated the app
+[LOG ENTRY] [LOG] [user:@celismx] Logged out
+
+
+Ejercicio 5
+TELEFONOS 
+^\+?\d{2,3}[^\da-z]?\d{2,3}[^\da-z]?\d{2,3}[#pe]?\d*$
+^\+?\d+[#pe]?[^a-z]\d.*$
+
+555658
+56-58-11
+56.58.11
+56.78-11
+65 09 87
+76y87r98
+65-09-87#123
+552560p123
+552560e123
++571234567
++57 314 416 1089
+314 416 1089
+314-416.1089
+314_416_1089
++573144161089
+091 6114871
+03 3144161089
+6114871 
+
+
+Ejercicio 6 
+URLS
+^https?://.+/.+$
+https?://[\w\.\-]+\.\w{2,5}/?\S*   #bueno Clase
+https?://[www\.]?[a-z]+[\.\w+]+[/?\w+-=]*   #Mas completo 
+[a-zA-Z]*:\/\/[a-z\.@]+\.[a-z]{2,5}[\/]?\S*   #que no sea https
+
+url: https://www.instagram.com/p/BXB4zsUlW5Z/?taken-by=beco.mx
+url: http://instagram.com/p/blablablah
+url: http://itam.mx/test
+url: https://subdominio.traetelo.net
+http://instagram.com/p/blablablah
+http://google.com
+https://www.vanguars-oft.org.ve
+http://platzi.com
+https://traetelo.net
+https://traetelo.net/images archivo.jsp
+https://hola.pizza/archivo.jps  archivo.jps
+
+
+Ejercicio 7
+Correos Electronicos 
+mails:@[\w\.\-]{3,}\.\w{2,5}
+[\w].*@[\w\.\-]{3,}\.\w{2,5}
+ 
+
+esto.es_un.mail+gmail@mail.com
+esto.es_un.mail+complejo@mail.com
+@dominio.com
+rodrigo.jimenez@yahoo.com.mx
+ruben@starbucks.com
+esto.no$es_email@dominio.com
+no_se_de_internet3@hotmail.com
+
+Ejercicio 8 
+Latitudes
+^-?\d{1,3}\.\d{1,6},\s?-?\d{1,3}\.\d{1,6},.*$
+
+-99.205646,19.429707,2275.10
+-99.205581, 19.429652,2275.10
+-99.204654,19.428952,2275.58
+
+^-\d{1,3}\s\d{1,2}' \d{1,2}.\d{1,2}"[WE],\s?-?\d{1,3} \d{1,2}' \d{1,2}.\d{1,2}"[NS]$
+
+-99 12' 34.08"W, 19 34' 56.98"N
+-34 54' 32.00"E, -3 21' 67.00"S
+
+[a-z]{1,10}.[a-z]{1,10}.[0-9a-z]+
+gravel.notes.handbag
+reaming.emberbers.rats
+
+Ejercicio 9
+Nombres
+^[A-Z][a-zá-ú]{2,}\s?[A-Z]?[a-zá-ú]{2,}\s?[A-Z]?[a-zá-ú]{2,}\s?[A-Z]?[a-zá-ú]{2,}$
+^([A-Z][a-z-\W?]{2,})?\s?([A-Z][a-z-\W?]{2,})?\s?([A-Z][a-z-\W?]{2,})?\s?([A-Z][a-z-\W?]{2,})?\s?$
+
+Luciana Rodríguez Castro
+Santiago Martínez Gutiérrez
+Salomé González Vargas
+Matías García Ortíz
+Isabella López Moreno
+Samuel Gómez Jiménez
+Mariana Hernández Rojas
+Jerónimo Pérez Muñoz
+Gabriela Sánchez Torres
+Emmanuel Díaz Ramírez
+Mariangel Ramírez Díaz
+Emiliano Torres Sánchez
+Valentina Muñoz Pérez
+Maximiliano Rojas Hernández
+Antonella Jiménez Gómez
+Mathias Moreno López
+Samantha Ortíz García
+Sebastián Vargas González
+Valeria Gutiérrez Martínez
+Martín Castro Rodríguez
+María José Rodríguez Castro
+Dulce María Martínez Gutiérrez
+Sara Sofía González Vargas
+Luisa Fernanda García Ortíz
+Sara Valentina
+María Fernanda García Ortíz
+Ana Sofía García Ortíz
+Ana Lucía González Vargas
+María Camila Ortíz García
+María Alejandra Ramírez Díaz
+Juan José Vargas González
+Miguel Angel Muñoz Pérez
+Juan Sebastián Ramírez Díaz
+Juan David Díaz Ramírez
+Samuel David Vargas González
+Juan Pablo López Moreno
+Andrés Felipe Muñoz Pérez
+Juan Esteban García Ortíz
+Juan Diego Muñoz Pérez
+Angel David López Moreno
+Ef3afga Easfgeas Eefe Enfle
+Éf3afga Easfgeas Eefe Enfle
+
+Ejercicio 10 
+SQL
+Busqueda y reemplazo 
+^\d+::([\w\s:,'\.&-\/!;\$#\?(\)]+)\s\((\d\d\d\d)\)::.*$
+^\d+::[\w\s]+\([\d]{1,}\)::\w+\|?\w+\|?\w+\|?\w+\|?\w+\|?$    #otra forma
+replace $1,$2
+insert into movies (year,title) values ($2,'$1');    #Para pasarlo a Sql
+{title:'$1',year:$2}  Diccionario 
+
+1::Toy Story (1995)::Adventure|Animation|Children|Comedy|Fantasy
+2::Jumanji (1995)::Adventure|Children|Fantasy
+3::Grumpier Old Men (1995)::Comedy|Romance
+4::Waiting to Exhale (1995)::Comedy|Drama|Romance
+5::Father of the Bride Part II (1995)::Comedy
+6::Heat (1995)::Action|Crime|Thriller
+7::Sabrina (1995)::Comedy|Romance
+8::Tom and Huck (1995)::Adventure|Children
+
+
+expresion:
+[\?&](\w+)=([^$\n]\w+)
+[\?&](\w+)=([^$\n]+)
+- $1=>$2
+direccion:
+http://b3co.com/?s=fotografia&mode=search&module=blog
+https://ve.search.yahoo.com/s earch?p=como+matar+a+maduro&fr=yfp-t&fp=1&toggle=1&cop=mss&ei=UTF-8
+https://www.google.co.ve/search?safe=active&ei=vVI9W5XBFKWKgAaosZNQ&q=cuando+tu+te+vas&oq=cuando+tu+te+vas&gs_l=psy-ab.3..0i203k1l10.15957.18336.0.18666.16.10.0.0.0.0.397.1210.2-2j2.4.0....0...1.1.64.psy-ab..12.4.1205...35i39k1.0.3GDpASe7jjQ
+
+^[\d]{2,2}/[\d]{2,2}/([\d]{4,4}),(.+),(.+),([\d]+),([\d]+),.*$
+([\d]+/[\d]+/[\d]+),(\w+),(\w+)
+15/11/2017,Peru,New Zealand,2,0,FIFA World Cup qualification,Lima,Peru,FALSE
+
+18/11/2017,Fiji,Estonia,0,2,Friendly,Suva,Fiji,FALSE
+
+22/11/2017,Vanuatu,Estonia,0,1,Friendly,Port Vila,Vanuatu,FALSE
+
+25/11/2017,Indonesia,Guyana,2,1,Friendly,Cikarang,Indonesia,FALSE
+
+26/11/2017,New Caledonia,Estonia,1,1,Friendly,Nouméa,New Caledonia,FALSE
+
+01/12/2017,Laos,Philippines,1,3,Friendly,Taipei,Taiwan,TRUE
+
+02/12/2017,Fiji,Tuvalu,8,0,Friendly,Port Vila,Vanuatu,TRUE
+
+02/12/2017,Indonesia,Brunei,4,0,Friendly,Banda Aceh,Indonesia,FALSE
+
+02/12/2017,Kyrgyzstan,Mongolia,3,0,Friendly,Banda Aceh,Indonesia,TRUE
+
+02/12/2017,Tonga,Solomon Islands,0,8,Friendly,Port Vila,Vanuatu,TRUE
+
+03/12/2017,Kenya,Rwanda,2,0,CECAFA Cup,Kakamega,Kenya,FALSE
+
+03/12/2017,Laos,East Timor,2,1,Friendly,Taipei,Taiwan,TRUE
+
+03/12/2017,Libya,Tanzania,0,0,CECAFA Cup,Machakos,Kenya,TRUE
+
+03/12/2017,Taiwan,Philippines,3,0,Friendly,Taipei,Taiwan,FALSE
+
+04/12/2017,Brunei,Kyrgyzstan,0,4,Friendly,Banda Aceh,Indonesia,TRUE
+
+04/12/2017,Indonesia,Mongolia,3,2,Friendly,Banda Aceh,Indonesia,FALSE
+
+04/12/2017,Taiwan,East Timor,3,1,Friendly,Taipei,Taiwan,FALSE
+
+04/12/2017,Uganda,Burundi,0,0,CECAFA Cup,Kakamega,Kenya,TRUE
+
+05/12/2017,East Timor,Philippines,1,0,Friendly,Taipei,Taiwan,TRUE
+
+05/12/2017,Kenya,Libya,0,0,CECAFA Cup,Machakos,Kenya,FALSE
+
+05/12/2017,South Sudan,Ethiopia,0,3,CECAFA Cup,Kakamega,Kenya,TRUE
+
+05/12/2017,Taiwan,Laos,2,0,Friendly,Taipei,Taiwan,FALSE
+
+05/12/2017,Zanzibar,Rwanda,3,1,CECAFA Cup,Machakos,Kenya,TRUE
+
+06/12/2017,Indonesia,Kyrgyzstan,0,1,Friendly,Banda Aceh,Indonesia,FALSE
+
+06/12/2017,Solomon Islands,Fiji,0,0,Friendly,Port Vila,Vanuatu,TRUE
+
+06/12/2017,Vanuatu,Tonga,5,0,Friendly,Port Vila,Vanuatu,FALSE
+
+07/12/2017,Burundi,Ethiopia,4,1,CECAFA Cup,Kakamega,Kenya,TRUE
+
+07/12/2017,Rwanda,Libya,0,0,CECAFA Cup,Machakos,Kenya,TRUE
+
+07/12/2017,Tanzania,Zanzibar,1,2,CECAFA Cup,Machakos,Kenya,TRUE
+
+08/12/2017,Uganda,South Sudan,5,1,CECAFA Cup,Kakamega,Kenya,TRUE
+
+09/12/2017,Japan,Korea DPR,1,0,EAFF Championship,Chōfu,Japan,FALSE
+
+09/12/2017,Kenya,Zanzibar,0,0,CECAFA Cup,Machakos,Kenya,FALSE
+
+09/12/2017,Korea Republic,China,2,2,EAFF Championship,Chōfu,Japan,TRUE
+
+09/12/2017,Rwanda,Tanzania,2,1,CECAFA Cup,Machakos,Kenya,TRUE
+
+09/12/2017,Solomon Islands,Tuvalu,6,0,Friendly,Port Vila,Vanuatu,TRUE
+
+09/12/2017,Vanuatu,Fiji,1,1,Friendly,Port Vila,Vanuatu,FALSE
+
+10/12/2017,Ethiopia,Uganda,1,1,CECAFA Cup,Kakamega,Kenya,TRUE
+
+11/12/2017,Kenya,Tanzania,1,0,CECAFA Cup,Machakos,Kenya,FALSE
+
+11/12/2017,Libya,Zanzibar,1,0,CECAFA Cup,Machakos,Kenya,TRUE
+
+11/12/2017,South Sudan,Burundi,0,0,CECAFA Cup,Kakamega,Kenya,TRUE
+
+12/12/2017,Fiji,Tonga,4,0,Friendly,Port Vila,Vanuatu,TRUE
+
+12/12/2017,Japan,China,2,1,EAFF Championship,Chōfu,Japan,FALSE
+
+12/12/2017,Korea DPR,Korea Republic,0,1,EAFF Championship,Chōfu,Japan,TRUE
+
+12/12/2017,Vanuatu,Tuvalu,10,0,Friendly,Port Vila,Vanuatu,FALSE
+
+14/12/2017,Kenya,Burundi,1,0,CECAFA Cup,Kisumu,Kenya,FALSE
+
+14/12/2017,Qatar,Liechtenstein,1,2,Friendly,Doha,Qatar,FALSE
+
+15/12/2017,Tuvalu,Tonga,4,3,Friendly,Port Vila,Vanuatu,TRUE
+
+15/12/2017,Uganda,Zanzibar,1,2,CECAFA Cup,Kisumu,Kenya,TRUE
+
+15/12/2017,Vanuatu,Solomon Islands,3,2,Friendly,Port Vila,Vanuatu,FALSE
+
+16/12/2017,China,Korea DPR,1,1,EAFF Championship,Chōfu,Japan,TRUE
+
+16/12/2017,Japan,Korea Republic,1,4,EAFF Championship,Chōfu,Japan,FALSE
+
+17/12/2017,Burundi,Uganda,1,2,CECAFA Cup,Machakos,Kenya,TRUE
+
+17/12/2017,Kenya,Zanzibar,2,2,CECAFA Cup,Machakos,Kenya,FALSE
+
+18/12/2017,Bahrain,Kuwait,0,0,Friendly,Riffa,Bahrain,FALSE
+
+22/12/2017,Kuwait,Saudi Arabia,1,2,Friendly,Kuwait City,Kuwait,FALSE
+
+22/12/2017,Oman,United Arab Emirates,0,1,Friendly,Kuwait City,Kuwait,TRUE
+
+23/12/2017,Bahrain,Iraq,1,1,Friendly,Kuwait City,Kuwait,TRUE
+
+23/12/2017,Qatar,Yemen,4,0,Friendly,Kuwait City,Kuwait,TRUE
+
+25/12/2017,Jordan,Libya,1,1,Friendly,Amman,Jordan,FALSE
+
+25/12/2017,Kuwait,Oman,0,1,Friendly,Kuwait City,Kuwait,FALSE
+
+25/12/2017,United Arab Emirates,Saudi Arabia,0,0,Friendly,Kuwait City,Kuwait,TRUE
+
+26/12/2017,Iraq,Qatar,2,1,Friendly,Kuwait City,Kuwait,TRUE
+
+26/12/2017,Yemen,Bahrain,0,1,Friendly,Kuwait City,Kuwait,TRUE
+
+28/12/2017,Kuwait,United Arab Emirates,0,0,Friendly,Kuwait City,Kuwait,FALSE
+
+28/12/2017,Saudi Arabia,Oman,0,2,Friendly,Kuwait City,Kuwait,TRUE
+
+29/12/2017,Iraq,Yemen,3,0,Friendly,Kuwait City,Kuwait,TRUE
+
+29/12/2017,Qatar,Bahrain,1,1,Friendly,Kuwait City,Kuwait,TRUE
+
+02/01/2018,Iraq,United Arab Emirates,0,0,Friendly,Kuwait City,Kuwait,TRUE
+
+02/01/2018,Oman,Bahrain,1,0,Friendly,Kuwait City,Kuwait,TRUE
+
+05/01/2018,Oman,United Arab Emirates,0,0,Friendly,Kuwait City,Kuwait,TRUE
+
+07/01/2018,Estonia,Sweden,1,1,Friendly,Abu Dhabi,United Arab Emirates,TRUE
+
+11/01/2018,Denmark,Sweden,0,1,Friendly,Abu Dhabi,United Arab Emirates,TRUE
+
+11/01/2018,Indonesia,Iceland,0,6,Friendly,Sleman,Indonesia,FALSE
+
+11/01/2018,Jordan,Finland,1,2,Friendly,Abu Dhabi,United Arab Emirates,TRUE
+
+14/01/2018,Indonesia,Iceland,1,4,Friendly,Jakarta,Indonesia,FALSE
+
+27/01/2018,Moldova,Korea Republic,0,1,Friendly,Antalya,Turkey,TRUE
+
+30/01/2018,Azerbaijan,Moldova,0,0,Friendly,Antalya,Turkey,TRUE
+
+30/01/2018,Jamaica,Korea Republic,2,2,Friendly,Antalya,Turkey,TRUE
+
+03/02/2018,Latvia,Korea Republic,0,1,Friendly,Antalya,Turkey,TRUE
+
+26/02/2018,Saudi Arabia,Moldova,3,0,Friendly,Jeddah,Saudi Arabia,FALSE
+
+28/02/2018,Iraq,Saudi Arabia,4,1,Friendly,Basra,Iraq,FALSE
+
+17/03/2018,Iran,Sierra Leone,4,0,Friendly,Teheran,Iran,FALSE
+
+21/03/2018,Andorra,Liechtenstein,1,0,Friendly,La Línea de la Concepción,Spain,TRUE
+
+21/03/2018,Antigua and Barbuda,Bermuda,3,2,Friendly,St. John's,Antigua and Barbuda,FALSE
+
+21/03/2018,Iraq,Qatar,2,3,Friendly,Basra,Iraq,FALSE
+
+21/03/2018,Jordan,Kuwait,1,0,Friendly,Amman,Jordan,FALSE
+
+21/03/2018,Laos,Cambodia,0,1,Friendly,Vientiane,Laos,FALSE
+
+21/03/2018,Madagascar,Togo,0,0,Friendly,Saint-Leu-la-Forêt,France,TRUE
+
+21/03/2018,South Africa,Angola,1,1,Friendly,Ndola,Zambia,TRUE
+
+21/03/2018,Tahiti,New Caledonia,0,0,Friendly,Pirae,Tahiti,FALSE
+
+21/03/2018,Zambia,Zimbabwe,2,2,Friendly,Ndola,Zambia,FALSE
+
+22/03/2018,Algeria,Tanzania,4,1,Friendly,Algiers,Algeria,FALSE
+
+22/03/2018,Bahrain,Palestine,0,0,Friendly,Riffa,Bahrain,FALSE
+
+22/03/2018,Belize,Grenada,4,2,Friendly,Belmopan,Belize,FALSE
+
+22/03/2018,China,Wales,0,6,Friendly,Nanning,China,FALSE
+
+22/03/2018,Denmark,Panama,1,0,Friendly,Brøndby,Denmark,FALSE
+
+22/03/2018,Dominican Republic,Turks and Caicos Islands,4,0,Friendly,Santo Domingo,Dominican Republic,FALSE
+
+22/03/2018,Faroe Islands,Latvia,1,1,Friendly,San Pedro de Alcántara,Spain,TRUE
+
+22/03/2018,Kyrgyzstan,Burma,5,1,AFC Asian Cup qualification,Incheon,Korea Republic,TRUE
+
+22/03/2018,Macau,Mauritius,0,1,Friendly,Macau,Macau,FALSE
+
+22/03/2018,Malaysia,Mongolia,2,2,Friendly,Kuala Lumpur,Malaysia,FALSE
+
+22/03/2018,Malta,Luxembourg,0,1,Friendly,Attard,Malta,FALSE
+
+22/03/2018,Nicaragua,Cuba,3,1,Friendly,Managua,Nicaragua,FALSE
+
+22/03/2018,Philippines,Fiji,3,2,Friendly,Manila,Philippines,FALSE
+
+22/03/2018,Slovakia,United Arab Emirates,2,1,Friendly,Bangkok,Thailand,TRUE
+
+22/03/2018,Thailand,Gabon,0,0,Friendly,Bangkok,Thailand,FALSE
+
+23/03/2018,Austria,Slovenia,3,0,Friendly,Klagenfurt,Austria,FALSE
+
+23/03/2018,Azerbaijan,Belarus,0,1,Friendly,Baku,Azerbaijan,FALSE
+
+23/03/2018,Curaçao,Bolivia,1,1,Friendly,Willemstad,Curaçao,FALSE
+
+23/03/2018,Cyprus,Montenegro,0,0,Friendly,Nicosia,Cyprus,FALSE
+
+23/03/2018,Finland,Macedonia,0,0,Friendly,Belek,Turkey,TRUE
+
+23/03/2018,France,Colombia,2,3,Friendly,Saint-Denis,France,FALSE
+
+23/03/2018,Gambia,Central African Republic,1,1,Friendly,Bakau,Gambia,FALSE
+
+23/03/2018,Germany,Spain,1,1,Friendly,Düsseldorf,Germany,FALSE
+
+23/03/2018,Greece,Switzerland,0,1,Friendly,Athens,Greece,FALSE
+
+23/03/2018,Guadeloupe,Trinidad and Tobago,0,1,Friendly,Les Abymes,Guadeloupe,FALSE
+
+23/03/2018,Hungary,Kazakhstan,2,3,Friendly,Budapest,Hungary,FALSE
+
+23/03/2018,Italy,Argentina,0,2,Friendly,Manchester,England,TRUE
+
+23/03/2018,Japan,Mali,1,1,Friendly,Liège,Belgium,TRUE
+
+23/03/2018,Mexico,Iceland,3,0,Friendly,Santa Clara,USA,TRUE
+
+23/03/2018,Netherlands,England,0,1,Friendly,Amsterdam,Netherlands,FALSE
+
+23/03/2018,Norway,Australia,4,1,Friendly,Oslo,Norway,FALSE
+
+23/03/2018,Peru,Croatia,2,0,Friendly,Miami Gardens,USA,TRUE
+
+23/03/2018,Poland,Nigeria,0,1,Friendly,Wrocław,Poland,FALSE
+
+23/03/2018,Portugal,Egypt,2,1,Friendly,Zürich,Switzerland,TRUE
+
+23/03/2018,Russia,Brazil,0,3,Friendly,Moscow,Russia,FALSE
+
+23/03/2018,Scotland,Costa Rica,0,1,Friendly,Glasgow,Scotland,FALSE
+
+23/03/2018,Senegal,Uzbekistan,1,1,Friendly,Casablanca,Morocco,TRUE
+
+23/03/2018,Serbia,Morocco,1,2,Friendly,Turin,Italy,TRUE
+
+23/03/2018,Singapore,Maldives,3,2,Friendly,Kallang,Singapore,FALSE
+
+23/03/2018,Tunisia,Iran,1,0,Friendly,Radès,Tunisia,FALSE
+
+23/03/2018,Turkey,Ireland,1,0,Friendly,Antalya,Turkey,FALSE
+
+23/03/2018,Ukraine,Saudi Arabia,1,1,Friendly,Marbella,Spain,TRUE
+
+23/03/2018,Uruguay,Czech Republic,2,0,Friendly,Nanning,China,TRUE
+
+24/03/2018,Angola,Zimbabwe,2,2,Friendly,Ndola,Zambia,TRUE
+
+24/03/2018,Armenia,Estonia,0,0,Friendly,Yerevan,Armenia,FALSE
+
+24/03/2018,Botswana,Lesotho,1,0,Friendly,Gaborone,Botswana,FALSE
+
+24/03/2018,Canada,New Zealand,1,0,Friendly,San Pedro del Pinatar,Spain,TRUE
+
+24/03/2018,Comoros,Kenya,2,2,Friendly,Marrakech,Morocco,TRUE
+
+24/03/2018,Georgia,Lithuania,4,0,Friendly,Tbilisi,Georgia,FALSE
+
+24/03/2018,Israel,Romania,1,2,Friendly,Netanya,Israel,FALSE
+
+24/03/2018,Ivory Coast,Togo,2,2,Friendly,Beauvais,France,TRUE
+
+24/03/2018,Kosovo,Madagascar,1,0,Friendly,Franconville,France,TRUE
+
+24/03/2018,Mauritania,Guinea,2,0,Friendly,Nouakchott,Mauritania,FALSE
+
+24/03/2018,Northern Ireland,Korea Republic,2,1,Friendly,Belfast,Northern Ireland,FALSE
+
+24/03/2018,Qatar,Syria,2,2,Friendly,Basra,Iraq,TRUE
+
+24/03/2018,Sweden,Chile,1,2,Friendly,Solna,Sweden,FALSE
+
+24/03/2018,Tahiti,New Caledonia,4,3,Friendly,Pirae,Tahiti,FALSE
+
+24/03/2018,Uganda,São Tomé and Príncipe,3,1,Friendly,Kampala,Uganda,FALSE
+
+24/03/2018,Zambia,South Africa,0,2,Friendly,Ndola,Zambia,FALSE
+
+25/03/2018,Barbados,Bermuda,0,0,Friendly,Bridgetown,Barbados,FALSE
+
+25/03/2018,Faroe Islands,Liechtenstein,3,0,Friendly,Marbella,Spain,TRUE
+
+25/03/2018,Gibraltar,Latvia,1,0,Friendly,Gibraltar,Gibraltar,FALSE
+
+25/03/2018,Jamaica,Antigua and Barbuda,1,1,Friendly,Kingston,Jamaica,FALSE
+
+25/03/2018,Kuwait,Cameroon,1,3,Friendly,Kuwait City,Kuwait,FALSE
+
+25/03/2018,Martinique,Trinidad and Tobago,0,0,Friendly,Fort-de-France,Martinique,FALSE
+
+25/03/2018,Nicaragua,Cuba,3,3,Friendly,Managua,Nicaragua,FALSE
+
+25/03/2018,Thailand,Slovakia,2,3,Friendly,Bangkok,Thailand,FALSE
+
+26/03/2018,Albania,Norway,0,1,Friendly,Elbasan,Albania,FALSE
+
+26/03/2018,Bulgaria,Kazakhstan,2,1,Friendly,Felcsút,Hungary,TRUE
+
+26/03/2018,China,Czech Republic,1,4,Friendly,Nanning,China,FALSE
+
+26/03/2018,Curaçao,Bolivia,1,0,Friendly,Willemstad,Curaçao,FALSE
+
+26/03/2018,Finland,Malta,5,0,Friendly,Belek,Turkey,TRUE
+
+26/03/2018,Portugal,Netherlands,0,3,Friendly,Geneva,Switzerland,TRUE
+
+26/03/2018,Wales,Uruguay,0,1,Friendly,Nanning,China,TRUE
+
+27/03/2018,Afghanistan,Cambodia,2,1,AFC Asian Cup qualification,Dushanbe,Tajikistan,TRUE
+
+27/03/2018,Algeria,Iran,1,2,Friendly,Graz,Austria,TRUE
+
+27/03/2018,Armenia,Lithuania,0,1,Friendly,Yerevan,Armenia,FALSE
+
+27/03/2018,Australia,Colombia,0,0,Friendly,London,England,TRUE
+
+27/03/2018,Azerbaijan,Macedonia,1,1,Friendly,Antalya,Turkey,TRUE
+
+27/03/2018,Bahrain,Turkmenistan,4,0,AFC Asian Cup qualification,Riffa,Bahrain,FALSE
+
+27/03/2018,Belgium,Saudi Arabia,4,0,Friendly,Brussels,Belgium,FALSE
+
+27/03/2018,Burma,Macau,1,0,AFC Asian Cup qualification,Rangoon,Burma,FALSE
+
+27/03/2018,Central African Republic,Kenya,3,2,Friendly,Marrakech,Morocco,TRUE
+
+27/03/2018,Denmark,Chile,0,0,Friendly,Aalborg,Denmark,FALSE
+
+27/03/2018,England,Italy,1,1,Friendly,London,England,FALSE
+
+27/03/2018,Georgia,Estonia,2,0,Friendly,Tbilisi,Georgia,FALSE
+
+27/03/2018,Germany,Brazil,0,1,Friendly,Berlin,Germany,FALSE
+
+27/03/2018,Greece,Egypt,1,0,Friendly,Zürich,Switzerland,TRUE
+
+27/03/2018,Hungary,Scotland,0,1,Friendly,Budapest,Hungary,FALSE
+
+27/03/2018,Iraq,Syria,1,1,Friendly,Basra,Iraq,FALSE
+
+27/03/2018,Jordan,Vietnam,1,1,AFC Asian Cup qualification,Amman,Jordan,FALSE
+
+27/03/2018,Korea DPR,Hong Kong,2,0,AFC Asian Cup qualification,P'yŏngyang,Korea DPR,FALSE
+
+27/03/2018,Kosovo,Burkina Faso,2,0,Friendly,Franconville,France,TRUE
+
+27/03/2018,Kyrgyzstan,India,2,1,AFC Asian Cup qualification,Bishkek,Kyrgyzstan,FALSE
+
+27/03/2018,Laos,Bangladesh,2,2,Friendly,Vientiane,Laos,FALSE
+
+27/03/2018,Lebanon,Malaysia,2,1,AFC Asian Cup qualification,Beirut,Lebanon,FALSE
+
+27/03/2018,Luxembourg,Austria,0,4,Friendly,Luxembourg,Luxembourg,FALSE
+
+27/03/2018,Maldives,Bhutan,7,0,AFC Asian Cup qualification,Malé,Maldives,FALSE
+
+27/03/2018,Mexico,Croatia,0,1,Friendly,Arlington,USA,TRUE
+
+27/03/2018,Moldova,Ivory Coast,1,2,Friendly,Beauvais,France,TRUE
+
+27/03/2018,Mongolia,Mauritius,0,2,Friendly,Ulan Bator,Mongolia,FALSE
+
+27/03/2018,Montenegro,Turkey,2,2,Friendly,Podgorica,Montenegro,FALSE
+
+27/03/2018,Morocco,Uzbekistan,2,0,Friendly,Casablanca,Morocco,FALSE
+
+27/03/2018,Namibia,Lesotho,2,1,Friendly,Windhoek,Namibia,FALSE
+
+27/03/2018,Oman,Palestine,1,0,AFC Asian Cup qualification,Muscat,Oman,FALSE
+
+27/03/2018,Peru,Iceland,3,1,Friendly,Harrison,USA,TRUE
+
+27/03/2018,Philippines,Tajikistan,2,1,AFC Asian Cup qualification,Manila,Philippines,FALSE
+
+27/03/2018,Poland,Korea Republic,3,2,Friendly,Chorzów,Poland,FALSE
+
+27/03/2018,Romania,Sweden,1,0,Friendly,Craiova,Romania,FALSE
+
+27/03/2018,Russia,France,1,3,Friendly,St. Petersburg,Russia,FALSE
+
+27/03/2018,Serbia,Nigeria,2,0,Friendly,London,England,TRUE
+
+27/03/2018,Seychelles,Swaziland,0,0,Friendly,Victoria,Seychelles,FALSE
+
+27/03/2018,Slovenia,Belarus,0,2,Friendly,Ljubljana,Slovenia,FALSE
+
+27/03/2018,Spain,Argentina,6,1,Friendly,Madrid,Spain,FALSE
+
+27/03/2018,Switzerland,Panama,6,0,Friendly,Lucerne,Switzerland,FALSE
+
+27/03/2018,Taiwan,Singapore,1,0,AFC Asian Cup qualification,Taipei,Taiwan,FALSE
+
+27/03/2018,Tanzania,Congo DR,2,0,Friendly,Dar es Salaam,Tanzania,FALSE
+
+27/03/2018,Tunisia,Costa Rica,1,0,Friendly,Nice,France,TRUE
+
+27/03/2018,Uganda,Malawi,0,0,Friendly,Kampala,Uganda,FALSE
+
+27/03/2018,Ukraine,Japan,2,1,Friendly,Liège,Belgium,TRUE
+
+27/03/2018,USA,Paraguay,1,0,Friendly,Cary,USA,FALSE
+
+27/03/2018,Yemen,Nepal,2,1,AFC Asian Cup qualification,Doha,Qatar,TRUE
+
+01/04/2018,Malaysia,Bhutan,7,0,Friendly,Kuala Lumpur,Malaysia,FALSE
+
+18/04/2018,Trinidad and Tobago,Panama,0,1,Friendly,Couva,Trinidad and Tobago,FALSE
+
+18/04/2018,Zimbabwe,Botswana,0,1,Friendly,Harare,Zimbabwe,FALSE
+
+30/04/2018,Antigua and Barbuda,Jamaica,0,2,Friendly,St. John's,Antigua and Barbuda,FALSE
+
+08/05/2018,Iraq,Palestine,0,0,Friendly,Basra,Iraq,FALSE
+
+09/05/2018,Algeria,Saudi Arabia,0,2,Friendly,Cádiz,Spain,TRUE
+
+11/05/2018,Kuwait,Palestine,2,0,Friendly,Kuwait City,Kuwait,FALSE
+
+15/05/2018,Saudi Arabia,Greece,2,0,Friendly,Seville,Spain,TRUE
+
+19/05/2018,Iran,Uzbekistan,1,0,Friendly,Teheran,Iran,FALSE
+
+20/05/2018,Jordan,Cyprus,3,0,Friendly,Amman,Jordan,FALSE
+
+25/05/2018,Kuwait,Egypt,1,1,Friendly,Kuwait,Kuwait,FALSE
+
+25/05/2018,Kenya,Swaziland,0,1,Friendly,Machakos,Kenya,FALSE
+
+26/05/2018,China,Burma,1,0,Friendly,Nanjing,China,FALSE
+
+27/05/2018,Cameroon,Burkina Faso,0,1,Friendly,Beauvais,France,TRUE
+
+27/05/2018,Niger,Central African Republic,3,3,Friendly,Niamey,Niger,FALSE
+
+27/05/2018,Madagascar,Mozambique,2,1,COSAFA Cup,Polokwane,South Africa,TRUE
+
+27/05/2018,Comoros,Seychelles,1,1,COSAFA Cup,Polokwane,South Africa,TRUE
+
+28/05/2018,USA,Bolivia,3,0,Friendly,Chester,USA,FALSE
+
+28/05/2018,Nigeria,Congo DR,1,1,Friendly,Port Harcourt,Nigeria,FALSE
+
+28/05/2018,Kenya,Equatorial Guinea,1,0,Friendly,Machakos,Kenya,FALSE
+
+28/05/2018,Portugal,Tunisia,2,2,Friendly,Braga,Portugal,FALSE
+
+28/05/2018,Italy,Saudi Arabia,2,1,Friendly,St. Gallen,Switzerland,TRUE
+
+28/05/2018,France,Ireland,2,0,Friendly,Saint-Denis,France,FALSE
+
+28/05/2018,Mexico,Wales,0,0,Friendly,Pasadena,USA,TRUE
+
+28/05/2018,Turkey,Iran,2,1,Friendly,Istanbul,Turkey,FALSE
+
+28/05/2018,Korea Republic,Honduras,2,0,Friendly,Daegu,Korea Republic,FALSE
+
+28/05/2018,Malawi,Mauritius,0,1,COSAFA Cup,Polokwane,South Africa,TRUE
+
+28/05/2018,Angola,Botswana,1,2,COSAFA Cup,Polokwane,South Africa,TRUE
+
+29/05/2018,Argentina,Haiti,4,0,Friendly,Buenos Aires,Argentina,FALSE
+
+29/05/2018,Albania,Kosovo,0,3,Friendly,Zürich,Switzerland,TRUE
+
+29/05/2018,Armenia,Malta,1,1,Friendly,Wattens,Austria,TRUE
+
+29/05/2018,Azerbaijan,Kyrgyzstan,3,0,Friendly,Baku,Azerbaijan,FALSE
+
+29/05/2018,Peru,Scotland,2,0,Friendly,Lima,Peru,FALSE
+
+29/05/2018,Panama,Northern Ireland,0,0,Friendly,Panama City,Panama,FALSE
+
+29/05/2018,Madagascar,Seychelles,1,1,COSAFA Cup,Polokwane,South Africa,TRUE
+
+29/05/2018,Comoros,Mozambique,0,3,COSAFA Cup,Polokwane,South Africa,TRUE
+
+30/05/2018,Japan,Ghana,0,2,Friendly,Yokohama,Japan,FALSE
+
+30/05/2018,Central African Republic,Uganda,1,0,Friendly,Niamey,Niger,TRUE
+
+30/05/2018,Austria,Russia,1,0,Friendly,Innsbruck,Austria,FALSE
+
+30/05/2018,Malawi,Botswana,1,1,COSAFA Cup,Polokwane,South Africa,TRUE
+
+30/05/2018,Angola,Mauritius,1,0,COSAFA Cup,Polokwane,South Africa,TRUE
+
+30/05/2018,Estonia,Lithuania,2,0,Baltic Cup,Rakvere,Estonia,FALSE
+
+31/05/2018,Ukraine,Morocco,0,0,Friendly,Geneva,Switzerland,TRUE
+
+31/05/2018,Romania,Chile,3,2,Friendly,Graz,Austria,TRUE
+
+31/05/2018,Luxembourg,Senegal,0,0,Friendly,Luxembourg,Luxembourg,FALSE
+
+31/05/2018,Mozambique,Seychelles,2,1,COSAFA Cup,Polokwane,South Africa,TRUE
+
+31/05/2018,Comoros,Madagascar,0,1,COSAFA Cup,Polokwane,South Africa,TRUE
+
+31/05/2018,Slovakia,Netherlands,1,1,Friendly,Trnava,Slovakia,FALSE
+
+01/06/2018,France,Italy,3,1,Friendly,Nice,France,FALSE
+
+01/06/2018,Turkey,Tunisia,2,2,Friendly,Geneva,Switzerland,TRUE
+
+01/06/2018,Czech Republic,Australia,0,4,Friendly,Sankt Pölten,Austria,TRUE
+
+01/06/2018,Algeria,Cape Verde,2,3,Friendly,Algiers,Algeria,FALSE
+
+01/06/2018,Colombia,Egypt,0,0,Friendly,Bergamo,Italy,TRUE
+
+01/06/2018,Malta,Georgia,0,1,Friendly,Schwaz,Austria,TRUE
+
+01/06/2018,Botswana,Mauritius,6,0,COSAFA Cup,Polokwane,South Africa,TRUE
+
+01/06/2018,Angola,Malawi,0,0,COSAFA Cup,Polokwane,South Africa,TRUE
+
+01/06/2018,India,Taiwan,5,0,Friendly,Mumbai,India,FALSE
+
+02/06/2018,El Salvador,Honduras,1,0,Friendly,Houston,USA,TRUE
+
+02/06/2018,Thailand,China,0,2,Friendly,Bangkok,Thailand,FALSE
+
+02/06/2018,England,Nigeria,2,1,Friendly,London,England,FALSE
+
+02/06/2018,Montenegro,Slovenia,0,2,Friendly,Podgorica,Montenegro,FALSE
+
+02/06/2018,Mexico,Scotland,1,0,Friendly,Mexico City,Mexico,FALSE
+
+02/06/2018,Sweden,Denmark,0,0,Friendly,Solna,Sweden,FALSE
+
+02/06/2018,Ireland,USA,2,1,Friendly,Dublin,Ireland,FALSE
+
+02/06/2018,Belgium,Portugal,0,0,Friendly,Brussels,Belgium,FALSE
+
+02/06/2018,Austria,Germany,2,1,Friendly,Klagenfurt,Austria,FALSE
+
+02/06/2018,Niger,Uganda,2,1,Friendly,Niamey,Niger,FALSE
+
+02/06/2018,Iceland,Norway,2,3,Friendly,Reykjavík,Iceland,FALSE
+
+02/06/2018,Zambia,Namibia,0,0,COSAFA Cup,Polokwane,South Africa,TRUE
+
+02/06/2018,Lesotho,Swaziland,1,0,COSAFA Cup,Polokwane,South Africa,TRUE
+
+02/06/2018,Latvia,Estonia,1,0,Baltic Cup,Riga,Latvia,FALSE
+
+02/06/2018,Kenya,New Zealand,2,1,Friendly,Mumbai,India,TRUE
+
+03/06/2018,Albania,Ukraine,1,4,Friendly,Évian-les-Bains,France,TRUE
+
+03/06/2018,Saudi Arabia,Peru,0,3,Friendly,St. Gallen,Switzerland,TRUE
+
+03/06/2018,Spain,Switzerland,1,1,Friendly,Vila-real,Spain,FALSE
+
+03/06/2018,Croatia,Brazil,0,2,Friendly,Liverpool,England,TRUE
+
+03/06/2018,Costa Rica,Northern Ireland,3,0,Friendly,San José,Costa Rica,FALSE
+
+03/06/2018,Barbados,Belize,0,0,Friendly,Bridgetown,Barbados,FALSE
+
+03/06/2018,Andorra,Cape Verde,0,0,Friendly,Almada,Portugal,TRUE
+
+03/06/2018,South Africa,Madagascar,0,0,COSAFA Cup,Polokwane,South Africa,FALSE
+
+03/06/2018,Zimbabwe,Botswana,1,1,COSAFA Cup,Polokwane,South Africa,TRUE
+
+04/06/2018,Italy,Netherlands,1,1,Friendly,Turin,Italy,FALSE
+
+04/06/2018,Serbia,Chile,0,1,Friendly,Graz,Austria,TRUE
+
+04/06/2018,Slovakia,Morocco,1,2,Friendly,Geneva,Switzerland,TRUE
+
+04/06/2018,Armenia,Moldova,0,0,Friendly,Kematen,Austria,TRUE
+
+04/06/2018,India,Kenya,3,0,Friendly,Mumbai,India,FALSE
